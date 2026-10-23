@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# generated output (CMF proposal cards, STL exports)
+out/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
