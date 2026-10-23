@@ -1,0 +1,17 @@
+[
+  {"key": "qinghua",  "name": "青花瓷",   "colors": ["#EFF1EA", "#7FA8C9", "#2E5A88", "#1B3A5C"]},
+  {"key": "ruyao",    "name": "汝窑天青", "colors": ["#E8EEE9", "#9FBDB6", "#6E9B93", "#3F6B67"]},
+  {"key": "morandi",  "name": "莫兰迪",   "colors": ["#E7DEDA", "#C9B4AC", "#9B8579", "#6E5A50"]},
+  {"key": "dunhuang", "name": "敦煌土红", "colors": ["#F0E4CE", "#D9A05B", "#B4552D", "#6E2C1E"]},
+  {"key": "qinglv",   "name": "青绿山水", "colors": ["#EDF2EA", "#7FA88B", "#4A7A62", "#274B3C"]},
+  {"key": "salt",     "name": "海盐蓝",   "colors": ["#F2F7FA", "#BFD9E8", "#6FA3C4", "#2F5D7C"]},
+  {"key": "wheat",    "name": "麦田黄",   "colors": ["#FBF4E2", "#F2D08A", "#C99A3F", "#7A5A21"]},
+  {"key": "terracotta", "name": "赤陶",   "colors": ["#F7EDE6", "#E0A183", "#B75B3C", "#6E2B1B"]},
+  {"key": "graphite", "name": "石墨灰",   "colors": ["#F5F6F7", "#C6C9CC", "#7C8288", "#33373B"]},
+  {"key": "matcha",   "name": "抹茶",     "colors": ["#F2F5EA", "#C8D8A8", "#8FA85E", "#4C5F2C"]},
+  {"key": "wisteria", "name": "紫藤",     "colors": ["#F6F2F8", "#D6C4E0", "#A87FBF", "#5E3F77"]},
+  {"key": "mint",     "name": "薄荷奶",   "colors": ["#F4FAF7", "#BFE6D8", "#7CC4AF", "#3E7D6C"]},
+  {"key": "peach",    "name": "蜜桃",     "colors": ["#FDF3EE", "#F5C4AE", "#E58E72", "#8E4433"]},
+  {"key": "sunset",   "name": "落日橘",   "colors": ["#FDF1E7", "#F4B183", "#E07B39", "#8C3B12"]},
+  {"key": "memphis",  "name": "孟菲斯",   "colors": ["#F5E663", "#FF6B6B", "#3D5AFE", "#2B2B2B"]}
+]

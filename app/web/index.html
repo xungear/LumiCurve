@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>LumiCurve 工作台</title>
+<link rel="stylesheet" href="style.css?v=71">
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ 左控制板 ============ -->
+  <aside class="panel">
+
+    <header class="brand">
+      <h1>LumiCurve</h1>
+      <p>产品配色 · 材质 · 表面处理</p>
+    </header>
+    <div class="rule"></div>
+
+    <div class="stack" id="cmfPane">
+      <label class="f">
+        <span class="lab">产品名称</span>
+        <input id="name" class="well" value="曲水 · 陶瓷香薰器" spellcheck="false">
+      </label>
+
+      <label class="f">
+        <span class="lab">配色方案</span>
+        <div class="pill sel">
+          <select id="scheme">
+            <option value="analogous">类似色</option>
+            <option value="complementary">互补色</option>
+            <option value="triadic">三分色</option>
+            <option value="split">分裂互补</option>
+            <option value="mono">单色渐变</option>
+          </select><i class="car"></i>
+        </div>
+      </label>
+
+      <div class="f2">
+        <label class="f">
+          <span class="lab">材质</span>
+          <div class="pill sel">
+            <select id="material">
+              <option value="matte">哑光陶瓷</option>
+              <option value="frosted">磨砂</option>
+              <option value="metal">金属拉丝</option>
+              <option value="leather">皮革</option>
+              <option value="gloss">高光塑料</option>
+              <option value="wood">木纹</option>
+            </select><i class="car"></i>
+          </div>
+        </label>
+
+        <label class="f">
+          <span class="lab">器型</span>
+          <div class="pill sel">
+            <select id="shape">
+              <option value="vase">花瓶</option>
+              <option value="bottle">造型瓶</option>
+              <option value="flask">香水瓶</option>
+              <option value="diffuser">香薰瓶</option>
+              <option value="carafe">醒酒器</option>
+              <option value="jar">收纳罐</option>
+              <option value="tumbler">直筒杯</option>
+              <option value="lamp">台式灯</option>
+              <option value="globe">球泡灯</option>
+              <option value="speaker">便携音箱</option>
+            </select><i class="car"></i>
+          </div>
+        </label>
+      </div>
+
+      <div class="f2">
+        <label class="f">
+          <span class="lab">花纹</span>
+          <div class="pill sel"><select id="pattern"></select><i class="car"></i></div>
+        </label>
+        <label class="f">
+          <span class="lab">花纹色</span>
+          <div class="pill sel"><select id="patCol" title="花纹用什么颜色"></select><i class="car"></i></div>
+        </label>
+      </div>
+
+      <div class="f">
+        <span class="lab">拼色预设</span>
+        <div class="presetrow">
+          <button class="parrow" id="pPrev" title="上一组">‹</button>
+          <div class="presets" id="presets"></div>
+          <button class="parrow" id="pNext" title="下一组">›</button>
+        </div>
+      </div>
+
+      <div class="dialrow">
+        <span class="lab wide">主 色 相</span>
+        <canvas id="dial" width="150" height="150" class="dial"></canvas>
+        <div class="dialtxt">
+          <em>色轮角度</em>
+          <b id="dialName">冰蓝 → 湖蓝</b>
+          <em>拖动旋转选色相</em>
+        </div>
+      </div>
+
+      <div class="f2">
+        <label class="f sl">
+          <span class="lab">配色数量</span><b class="val" id="nVal">4</b>
+          <input type="range" id="n" min="2" max="5" step="1" value="4">
+        </label>
+        <label class="f sl">
+          <span class="lab">饱和度</span><b class="val" id="satVal">55%</b>
+          <input type="range" id="sat" min="10" max="95" step="1" value="55">
+        </label>
+      </div>
+      <div class="f2">
+        <label class="f sl">
+          <span class="lab">明度</span><b class="val" id="valVal">80%</b>
+          <input type="range" id="val" min="30" max="97" step="1" value="80">
+        </label>
+        <label class="f sl">
+          <span class="lab">可辨识 ΔE00</span><b class="val" id="tgtVal">12</b>
+          <input type="range" id="target" min="8" max="20" step="1" value="12">
+        </label>
+      </div>
+
+      <div class="printblock">
+        <span class="lab">3D 打印</span>
+        <label class="f sl">
+          <span class="lab">打印高度</span><b class="val" id="htVal">300 mm</b>
+          <input type="range" id="pheight" min="120" max="400" step="10" value="300">
+        </label>
+        <div class="f2">
+          <label class="f sl">
+            <span class="lab">壁厚</span><b class="val" id="wallVal">3.0 mm</b>
+            <input type="range" id="pwall" min="1.5" max="8" step="0.5" value="3">
+          </label>
+          <label class="f sl" id="embRow">
+            <span class="lab">浮雕深度</span><b class="val" id="embVal">0.6 mm</b>
+            <input type="range" id="pemboss" min="0" max="1.2" step="0.1" value="0.6">
+          </label>
+        </div>
+      </div>
+
+      <div class="switchrow">
+        <button id="cvd" class="switch on" aria-pressed="true"><i></i></button>
+        <div><b>色觉关怀</b><em>自动拉开明度差</em></div>
+      </div>
+    </div>
+
+
+    <div class="foot">
+      <button id="save" class="btn primary">保存方案卡</button>
+      <button id="openout" class="btn">打开 out 文件夹</button>
+      <button id="copy" class="btn">复制色号清单</button>
+    </div>
+  </aside>
+
+  <!-- ============ 右预览 ============ -->
+  <main class="main">
+    <div class="tabs">
+      <span class="tname">配色材质</span>
+      <button class="tb" id="btn3d" title="可转视角的 3D 产品预览">3D 视图</button>
+      <button class="tb" id="btnBrush" title="直接在器物上手绘花纹">画笔</button>
+      <button class="tb" id="btnSim" title="看色弱用户眼中的配色">色弱视图</button>
+      <button class="tb" id="btnFix" title="自动搜一组能通过色觉检查的配色">找达标方案</button>
+      <button class="tb" id="btnLight" title="切换打光方案（仅 3D 视图）">光源：工作室</button>
+      <button class="tb" id="btnStl" title="导出可打印的 STL 并给出打印检查">导出 STL</button>
+      <span class="meta">CMF PROPOSAL · v0.5</span>
+    </div>
+
+    <div class="plinth">
+      <div class="loading" id="loading"><i></i><span>渲染中…</span></div>
+      <div class="plot"><img id="shot" alt="方案卡预览"><div class="hits" id="hits"></div><canvas id="gl"></canvas><div class="ghint">拖动旋转 · 滚轮缩放</div>
+        <div class="palpop hide" id="palPop">
+          <div class="palhead">
+            <i class="pd cur big" id="palCur"></i>
+            <b id="palHex">#5B3A70</b>
+            <button class="pt mini" id="palClose">关闭</button>
+          </div>
+          <div class="pallab">方案色</div>
+          <div class="palrow2" id="palScheme"></div>
+          <div class="pallab">赤橙黄绿青蓝紫 · 各明度</div>
+          <div class="palgrid" id="palGrid"></div>
+        </div>
+        <div class="pentools hide" id="penTools">
+          <div class="prow">
+            <button class="pt" id="btnUndo" title="撤销（Ctrl+Z）" disabled>撤销</button>
+            <button class="pt" id="btnRedo" title="重做（Ctrl+Shift+Z）" disabled>重做</button>
+            <span class="penpal">
+              <i class="pd cur" id="penCur" title="当前画笔颜色，点开完整色板"></i>
+              <span id="penPal" title="方案色：取自当前配色的色卡"></span>
+              <button class="pt mini" id="btnPal" title="打开完整色板（赤橙黄绿青蓝紫 × 各明度）">色板</button>
+            </span>
+          </div>
+          <div class="prow">
+            <span class="penmeter" title="笔刷粗细：也可以用 [ 和 ] 键">
+              <i class="pdot" id="penDot"></i>
+              <input type="range" id="pen" min="2" max="96" step="1" value="18">
+              <b id="penVal">18</b>
+            </span>
+            <button class="pt" id="btnEraser" title="切换橡皮">橡皮</button>
+            <button class="pt" id="btnMaskClear" title="清空手绘笔迹">清空</button>
+            <button class="pt" id="btnLock" title="锁住视角：画的时候模型不再跟着转/缩放">锁定</button>
+            <button class="pt on" id="btnPenDone" title="退出画笔">完成</button>
+          </div>
+        </div></div>
+    </div>
+
+    <div class="status" id="status">准备就绪</div>
+  </main>
+</div>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<script type="module" src="view3d.js?v=76"></script>
+<script src="app.js?v=70"></script>
+</body>
+</html>
